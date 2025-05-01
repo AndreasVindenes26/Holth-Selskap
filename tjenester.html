@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tjenester - Holt Selskap og Catering</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Toppmeny */
+        nav {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #e67e22;
+        }
+
+        /* Hero-seksjon */
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1501339847302-ac426de6f3af');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Tjenesteseksjon */
+        .services-section {
+            padding: 60px 20px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 20px;
+        }
+
+        .service-box {
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+        }
+
+        .service-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #e67e22;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* Responsiv design */
+        @media (max-width: 768px) {
+            .services-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .service-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Toppmeny -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="omoss.html">Om Oss</a></li>
+            <li><a href="meny.html">Meny</a></li>
+            <li><a href="tjenester.html">Tjenester</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero-seksjon -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Våre Tjenester</h1>
+        </div>
+    </div>
+
+    <!-- Tjenesteseksjon -->
+    <div class="services-section">
+        <!-- Minnestunder Boks -->
+        <div class="service-box">
+            <img src="Bilder/Image (9).jpg" alt="Selskap">
+            <h2 class="service-title">Selskap</h2>
+            <p class="service-description">Enten du skal feire bursdag, konfirmasjon eller jubileum – vi leverer deilig mat som løfter enhver anledning. Du inviterer, vi ordner resten!</p>
+        </div>
+
+        <!-- Bryllup Boks -->
+        <div class="service-box">
+            <img src="Bilder/Image (11).jpg" alt="Catering">
+            <h2 class="service-title">Catering</h2>
+            <p class="service-description">Vi leverer smakfull mat rett til deg – enten det er til møter, feiringer eller hyggelige samlinger.</p>
+        </div>
+
+        <!-- Firmaarrangementer Boks -->
+        <div class="service-box">
+            <img src="Bilder/Image (4).jpg" alt="Minnestund">
+            <h2 class="service-title">Minnestund</h2>
+            <p class="service-description">Vi hjelper deg å skape en varm og verdig ramme rundt minnestunden. Våre menyer er satt sammen med omtanke, og vi tilrettelegger alt slik at du kan fokusere på det som betyr mest.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Holth Catering. Alle rettigheter reservert.</p>
+    </footer>
+</body>
+</html>

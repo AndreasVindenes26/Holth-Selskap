@@ -1,0 +1,242 @@
+<!DOCTYPE html>  
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meny - Holth-Selskap og Catering</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        nav {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 30px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #e67e22;
+        }
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1533777324565-a040eb52fac1');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .content-section {
+            padding: 60px 20px;
+            background-color: #fff;
+            margin: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .menu-category {
+            margin-bottom: 50px;
+        }
+        .menu-category-title {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #e67e22;
+            text-transform: uppercase;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .menu-item-name {
+            font-size: 18px;
+        }
+        .menu-item-price {
+            font-size: 18px;
+            color: #e67e22;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        /* Karusell */
+        .carousel {
+            position: relative;
+            max-width: 450px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-images img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.7);
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 2;
+            border-radius: 50%;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="index.html">Forside</a></li>
+        <li><a href="omoss.html">Om Oss</a></li>
+        <li><a href="meny.html">Meny</a></li>
+        <li><a href="tjenester.html">Tjenester</a></li>
+    </ul>
+</nav>
+<div class="hero">
+    <div class="hero-content">
+        <h1>Vår Meny</h1>
+    </div>
+</div>
+<div class="content-section">
+    <div class="menu-category">
+        <h2 class="menu-category-title">Minnestund</h2>
+        <div class="menu-item">
+            <span class="menu-item-name">Assortert smørbrødbuffet med varme karbonader, eggerøre m/laks eller spekeskinke, reker, roastbiff, ribberull, røkt kjøttpålegg, oksestek</span>
+            <span class="menu-item-price">kr 370,-</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Kaffe/te og kaker er inkludert</span>
+            <span class="menu-item-price">Inkludert</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Mineralvann</span>
+            <span class="menu-item-price">kr 52,-</span>
+        </div>
+    </div>
+    <div class="menu-category">
+        <h2 class="menu-category-title">Catering</h2>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Laks og eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Reker</span><span class="menu-item-price">kr 65,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Kjøttpålegg</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Roastbiff</span><span class="menu-item-price">kr 65,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Ost</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Spekeskinke med eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Karbonader med løk</span><span class="menu-item-price">kr 75,-</span></div>
+    </div>
+    <div class="menu-category">
+        <h2 class="menu-category-title">Takeaway</h2>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Laks og eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Reker</span><span class="menu-item-price">kr 65,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Kjøttpålegg</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Roastbiff</span><span class="menu-item-price">kr 65,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Ost</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Spekeskinke med eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med Karbonader med løk</span><span class="menu-item-price">kr 75,-</span></div>
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="menu-category-title">Galleri</h2>
+    <div class="carousel">
+        <button class="carousel-button prev">&#10094;</button>
+        <div class="carousel-images">
+            <img src="Bilder/Image (14).jpg" alt="Matbilde 2">
+            <img src="Bilder/Image (15).jpg" alt="Matbilde 2">
+            <img src="Bilder/Image (18).jpg" alt="Matbilde 2">
+        
+        </div>
+        <button class="carousel-button next">&#10095;</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; Holth Catering. Alle rettigheter reservert.</p>
+</footer>
+
+<script>
+let currentIndex = 0;
+const images = document.querySelectorAll('.carousel-images img');
+const totalImages = images.length;
+const carouselImages = document.querySelector('.carousel-images');
+
+function updateCarousel() {
+    carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+document.querySelector('.carousel-button.prev').addEventListener('click', () => {
+    currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
+    updateCarousel();
+});
+
+document.querySelector('.carousel-button.next').addEventListener('click', () => {
+    currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
+    updateCarousel();
+});
+</script>
+
+</body>
+</html>
