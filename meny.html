@@ -1,9 +1,9 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meny - Holth-Selskap og Catering</title>
+    <title>Meny - Holth Selskap og Catering</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -90,7 +90,7 @@
         .menu-item {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 8px 0;
             border-bottom: 1px solid #ddd;
         }
         .menu-item:last-child {
@@ -100,7 +100,7 @@
             font-size: 18px;
         }
         .menu-item-price {
-            font-size: 18px;
+            font-size: 16px;
             color: #e67e22;
         }
         footer {
@@ -109,41 +109,6 @@
             text-align: center;
             padding: 20px 0;
             margin-top: 40px;
-        }
-
-        /* Karusell */
-        .carousel {
-            position: relative;
-            max-width: 450px;
-            margin: 40px auto;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        .carousel-images img {
-            width: 100%;
-            flex-shrink: 0;
-        }
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255,255,255,0.7);
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 2;
-            border-radius: 50%;
-        }
-        .carousel-button.prev {
-            left: 10px;
-        }
-        .carousel-button.next {
-            right: 10px;
         }
     </style>
 </head>
@@ -156,87 +121,132 @@
         <li><a href="tjenester.html">Tjenester</a></li>
     </ul>
 </nav>
+
 <div class="hero">
     <div class="hero-content">
         <h1>Vår Meny</h1>
     </div>
 </div>
+
+<!-- Minnesammenkomst -->
 <div class="content-section">
     <div class="menu-category">
-        <h2 class="menu-category-title">Minnestund</h2>
-        <div class="menu-item">
-            <span class="menu-item-name">Assortert smørbrødbuffet med varme karbonader, eggerøre m/laks eller spekeskinke, reker, roastbiff, ribberull, røkt kjøttpålegg, oksestek</span>
-            <span class="menu-item-price">kr 370,-</span>
-        </div>
-        <div class="menu-item">
-            <span class="menu-item-name">Kaffe/te og kaker er inkludert</span>
-            <span class="menu-item-price">Inkludert</span>
-        </div>
-        <div class="menu-item">
-            <span class="menu-item-name">Mineralvann</span>
-            <span class="menu-item-price">kr 52,-</span>
-        </div>
-    </div>
-    <div class="menu-category">
-        <h2 class="menu-category-title">Catering</h2>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Laks og eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Reker</span><span class="menu-item-price">kr 65,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Kjøttpålegg</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Roastbiff</span><span class="menu-item-price">kr 65,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Ost</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Spekeskinke med eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Karbonader med løk</span><span class="menu-item-price">kr 75,-</span></div>
-    </div>
-    <div class="menu-category">
-        <h2 class="menu-category-title">Takeaway</h2>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Laks og eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Reker</span><span class="menu-item-price">kr 65,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Kjøttpålegg</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Roastbiff</span><span class="menu-item-price">kr 65,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Ost</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Spekeskinke med eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med Karbonader med løk</span><span class="menu-item-price">kr 75,-</span></div>
+        <h2 class="menu-category-title">Minnesammenkomst</h2>
+        <div class="menu-item"><span class="menu-item-name">Varme karbonader</span></div>
+        <div class="menu-item"><span class="menu-item-name">Eggerøre m/laks og spekeskinke</span></div>
+        <div class="menu-item"><span class="menu-item-name">Reker</span></div>
+        <div class="menu-item"><span class="menu-item-name">Diverse kjøttpålegg: Roastbiff, røkt kjøttpålegg, oksestek, skinkestek</span></div>
+        <div class="menu-item"><span class="menu-item-name">Kaffe/te</span></div>
+        <div class="menu-item"><span class="menu-item-name">Kaker: Bløtkake, sjokoladekake, kefirkake</span></div>
+        <div class="menu-item"><span class="menu-item-name">Brød</span></div>
+        <div class="menu-item"><span class="menu-item-name">Pris pr. kuvert inkl. oppdekking, lys og lokale</span><span class="menu-item-price">kr 370,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Mineralvann (tillegg)</span><span class="menu-item-price">kr 52,-</span></div>
     </div>
 </div>
 
+<!-- Smørbrød utlevering -->
 <div class="content-section">
-    <h2 class="menu-category-title">Galleri</h2>
-    <div class="carousel">
-        <button class="carousel-button prev">&#10094;</button>
-        <div class="carousel-images">
-            <img src="Bilder/Image (14).jpg" alt="Matbilde 2">
-            <img src="Bilder/Image (15).jpg" alt="Matbilde 2">
-            <img src="Bilder/Image (18).jpg" alt="Matbilde 2">
-        
-        </div>
-        <button class="carousel-button next">&#10095;</button>
+    <div class="menu-category">
+        <h2 class="menu-category-title">Smørbrød (utlevering)</h2>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med laks og eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med reker</span><span class="menu-item-price">kr 65,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med kjøttpålegg</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med roastbiff</span><span class="menu-item-price">kr 65,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med ost</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med spekeskinke og eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smørbrød med karbonader og løk</span><span class="menu-item-price">kr 75,-</span></div>
+    </div>
+</div>
+
+<!-- Koldtbord (servering hos oss) -->
+<div class="content-section">
+    <div class="menu-category">
+        <h2 class="menu-category-title">Koldtbord (servering hos oss)</h2>
+        <div class="menu-item"><span class="menu-item-name">Eggerøre m/røket laks og spekeskinke</span></div>
+        <div class="menu-item"><span class="menu-item-name">Ostefat med frukt</span></div>
+        <div class="menu-item"><span class="menu-item-name">Roastbiff – kokt røkt skinke (eller andre typer kjøtt)</span></div>
+        <div class="menu-item"><span class="menu-item-name">Kylling</span></div>
+        <div class="menu-item"><span class="menu-item-name">Karbonader med løk</span></div>
+        <div class="menu-item"><span class="menu-item-name">Potetsalat</span></div>
+        <div class="menu-item"><span class="menu-item-name">Grønn salat med dressing</span></div>
+        <div class="menu-item"><span class="menu-item-name">Remulade</span></div>
+        <div class="menu-item"><span class="menu-item-name">Brød</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smør</span></div>
+        <div class="menu-item"><span class="menu-item-name">Karamellpudding eller annen dessert</span></div>
+        <div class="menu-item"><span class="menu-item-name">Pris pr. person</span><span class="menu-item-price">kr 560,-</span></div>
+    </div>
+</div>
+
+<!-- Koldtbord (utlevering) -->
+<div class="content-section">
+    <div class="menu-category">
+        <h2 class="menu-category-title">Koldtbord (utlevering, min. 10 personer)</h2>
+        <div class="menu-item"><span class="menu-item-name">Koldtbord pr. pers</span><span class="menu-item-price">kr 360,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Egg og røkelaks/spekeskinke</span></div>
+        <div class="menu-item"><span class="menu-item-name">Ostefat med frukt</span></div>
+        <div class="menu-item"><span class="menu-item-name">Roastbiff – kokt røkt skinke</span></div>
+        <div class="menu-item"><span class="menu-item-name">Kylling</span></div>
+        <div class="menu-item"><span class="menu-item-name">Karbonader med løk</span></div>
+        <div class="menu-item"><span class="menu-item-name">Potetsalat</span></div>
+        <div class="menu-item"><span class="menu-item-name">Grønn salat med dressing</span></div>
+        <div class="menu-item"><span class="menu-item-name">Remulade</span></div>
+    </div>
+</div>
+
+<!-- Komponer eget koldtbord -->
+<div class="content-section">
+    <div class="menu-category">
+        <h2 class="menu-category-title">Komponer eget koldtbord (utlevering)</h2>
+        <div class="menu-item"><span class="menu-item-name">Egg og røkelaks/spekeskinke</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Roastbiff</span><span class="menu-item-price">kr 65,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Kokt røkt skinke / steik okse/svin</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Kabaret med remulade</span><span class="menu-item-price">kr 60,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Kylling</span><span class="menu-item-price">kr 65,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Karbonader med løk</span><span class="menu-item-price">kr 75,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Potetsalat</span><span class="menu-item-price">kr 35,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Grønn salat med dressing</span><span class="menu-item-price">kr 45,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Waldorfsalat</span><span class="menu-item-price">kr 50,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Ost</span><span class="menu-item-price">kr 65,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Brød pr. stk</span><span class="menu-item-price">kr 25,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Kuvertsmør pr. stk</span><span class="menu-item-price">kr 3,-</span></div>
+    </div>
+</div>
+
+<!-- Tapas (servering hos oss) -->
+<div class="content-section">
+    <div class="menu-category">
+        <h2 class="menu-category-title">Tapas (servering hos oss)</h2>
+        <div class="menu-item"><span class="menu-item-name">Tapas pr. pers</span><span class="menu-item-price">kr 400,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Kjøttboller i tomatsaus (3 stk)</span></div>
+        <div class="menu-item"><span class="menu-item-name">Marinert kylling med urter, creme fraiche og majones</span></div>
+        <div class="menu-item"><span class="menu-item-name">Marinert scampi med hvitløk (4 stk)</span></div>
+        <div class="menu-item"><span class="menu-item-name">Dadler med bacon (3 stk)</span></div>
+        <div class="menu-item"><span class="menu-item-name">Poteter med ost</span></div>
+        <div class="menu-item"><span class="menu-item-name">Lefser med laks/spekeskinke, urter og frukt</span></div>
+        <div class="menu-item"><span class="menu-item-name">Tomatsalsa med mozzarella</span></div>
+        <div class="menu-item"><span class="menu-item-name">Spansk omelett</span></div>
+        <div class="menu-item"><span class="menu-item-name">Tzatziki</span></div>
+        <div class="menu-item"><span class="menu-item-name">Hjemmelaget focaccia</span></div>
+        <div class="menu-item"><span class="menu-item-name">Aioli</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smør</span></div>
+    </div>
+</div>
+
+<!-- Leie av lokaler -->
+<div class="content-section">
+    <div class="menu-category">
+        <h2 class="menu-category-title">Leie av lokaler</h2>
+        <div class="menu-item"><span class="menu-item-name">Leie lokaler v/seremoni uten mat</span><span class="menu-item-price">kr 5.800,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Leie lokaler v/seremoni med mat</span><span class="menu-item-price">kr 4.500,-</span></div>
+        <div class="menu-item"><span class="menu-item-name">Leie lokaler m/kaffe og kaker</span><span class="menu-item-price">kr 5.800,- + kr 225,- pr. pers</span></div>
+        <div class="menu-item"><span class="menu-item-name">Leie lokaler m/kaffe/te</span><span class="menu-item-price">kr 5.800,- + kr 50,- pr. pers</span></div>
+        <div class="menu-item"><span class="menu-item-name">Leie av "Lillesalen" (max 20 personer)</span><span class="menu-item-price">kr 2.000,-</span></div>
     </div>
 </div>
 
 <footer>
     <p>&copy; Holth Catering. Alle rettigheter reservert.</p>
 </footer>
-
-<script>
-let currentIndex = 0;
-const images = document.querySelectorAll('.carousel-images img');
-const totalImages = images.length;
-const carouselImages = document.querySelector('.carousel-images');
-
-function updateCarousel() {
-    carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-document.querySelector('.carousel-button.prev').addEventListener('click', () => {
-    currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
-    updateCarousel();
-});
-
-document.querySelector('.carousel-button.next').addEventListener('click', () => {
-    currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
-    updateCarousel();
-});
-</script>
 
 </body>
 </html>
