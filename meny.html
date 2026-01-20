@@ -1,251 +1,462 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meny - Holth Selskap og Catering</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        nav {
-            position: fixed;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 15px 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-        }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 30px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #e67e22;
-        }
-        .hero {
-            background-image: url('https://images.unsplash.com/photo-1533777324565-a040eb52fac1');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
-            padding: 0 20px;
-            position: relative;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        .hero h1 {
-            font-size: 50px;
-            margin: 0;
-            text-transform: uppercase;
-        }
-        .content-section {
-            padding: 60px 20px;
-            background-color: #fff;
-            margin: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .menu-category {
-            margin-bottom: 50px;
-        }
-        .menu-category-title {
-            font-size: 36px;
-            margin-bottom: 30px;
-            color: #e67e22;
-            text-transform: uppercase;
-        }
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-        .menu-item-name {
-            font-size: 18px;
-        }
-        .menu-item-price {
-            font-size: 16px;
-            color: #e67e22;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meny - Holth Selskap og Catering</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f6f6f6;
+      color: #333;
+      scroll-behavior: smooth; /* smooth scrolling */
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 14px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(6px);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0 12px;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      transition: 0.2s;
+      display: inline-block;
+    }
+    nav ul li a:hover { background: rgba(255,255,255,0.08); color: #e67e22; }
+
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1533777324565-a040eb52fac1');
+      background-size: cover;
+      background-position: center;
+      height: 52vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 18px;
+      position: relative;
+      margin-top: 58px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 52px);
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* HURTIGNAV */
+    .quicknav {
+      max-width: 1050px;
+      margin: 18px auto 8px;  /* ligger under hero */
+      padding: 0 14px;
+    }
+    .quicknav-inner {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      padding: 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .qbtn {
+      text-decoration: none;
+      color: #333;
+      background: #f3f3f3;
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      transition: 0.2s;
+      border: 1px solid #eee;
+      display: inline-block;
+    }
+    .qbtn:hover {
+      transform: translateY(-1px);
+      border-color: #e67e22;
+      color: #e67e22;
+      background: #fff;
+    }
+
+    /* For at seksjonene ikke havner bak navbar når man trykker */
+    .anchor {
+      scroll-margin-top: 92px;
+    }
+
+    .wrap {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 28px 14px 60px;
+    }
+
+    .content-section {
+      background-color: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      padding: 22px 18px;
+      margin: 18px 0;
+    }
+
+    .category-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 12px;
+    }
+
+    .menu-category-title {
+      font-size: 26px;
+      margin: 0;
+      color: #e67e22;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .subline {
+      margin: 6px 0 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .price-tag {
+      background: #e67e22;
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: bold;
+      white-space: nowrap;
+      box-shadow: 0 6px 14px rgba(230,126,34,0.25);
+      font-size: 15px;
+    }
+
+    .item-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .item-list li {
+      margin: 9px 0;
+      line-height: 1.35;
+    }
+
+    .allergen {
+      display: block;
+      font-size: 12px;
+      color: #777;
+      margin-top: 3px;
+    }
+
+    .price-list {
+      margin-top: 6px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .row:last-child { border-bottom: none; }
+    .row .name { font-size: 16px; }
+    .row .price { font-weight: bold; color: #e67e22; white-space: nowrap; }
+
+    .note {
+      margin-top: 12px;
+      padding: 12px 12px;
+      background: #faf7f3;
+      border: 1px solid #f1e3d2;
+      border-radius: 12px;
+      color: #444;
+      font-size: 14px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 760px) {
+      .split { grid-template-columns: 1fr; }
+      .category-head { flex-direction: column; align-items: flex-start; }
+      .price-tag { margin-top: 8px; }
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 18px 0;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
+
 <nav>
-    <ul>
-        <li><a href="index.html">Forside</a></li>
-        <li><a href="omoss.html">Om Oss</a></li>
-        <li><a href="meny.html">Meny</a></li>
-        <li><a href="tjenester.html">Tjenester</a></li>
-    </ul>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="omoss.html">Om Oss</a></li>
+    <li><a href="meny.html">Meny</a></li>
+    <li><a href="tjenester.html">Tjenester</a></li>
+  </ul>
 </nav>
 
 <div class="hero">
-    <div class="hero-content">
-        <h1>Vår Meny</h1>
-    </div>
+  <div class="hero-content">
+    <h1>Vår Meny</h1>
+  </div>
 </div>
 
-<!-- Minnesammenkomst -->
-<div class="content-section">
-    <div class="menu-category">
+<!-- HURTIGNAV MENY -->
+<div class="quicknav">
+  <div class="quicknav-inner">
+    <a class="qbtn" href="#minnesamvaer">Minnesamvær</a>
+    <a class="qbtn" href="#smorbrod">Smørbrød</a>
+    <a class="qbtn" href="#koldtbord-hos">Koldtbord (hos oss)</a>
+    <a class="qbtn" href="#koldtbord-ut">Koldtbord (utlevering)</a>
+    <a class="qbtn" href="#komponer">Komponer koldtbord</a>
+    <a class="qbtn" href="#tapas">Tapas</a>
+    <a class="qbtn" href="#lokaler">Leie av lokaler</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Minnesammenkomst -->
+  <div id="minnesamvaer" class="content-section anchor">
+    <div class="category-head">
+      <div>
         <h2 class="menu-category-title">Minnesammenkomst</h2>
-        <div class="menu-item"><span class="menu-item-name">Varme karbonader</span></div>
-        <div class="menu-item"><span class="menu-item-name">Eggerøre m/laks og spekeskinke</span></div>
-        <div class="menu-item"><span class="menu-item-name">Reker</span></div>
-        <div class="menu-item"><span class="menu-item-name">Diverse kjøttpålegg: Roastbiff, røkt kjøttpålegg, oksestek, skinkestek</span></div>
-        <div class="menu-item"><span class="menu-item-name">Kaffe/te</span></div>
-        <div class="menu-item"><span class="menu-item-name">Kaker: Bløtkake, sjokoladekake, kefirkake</span></div>
-        <div class="menu-item"><span class="menu-item-name">Brød</span></div>
-        <div class="menu-item"><span class="menu-item-name">Pris pr. kuvert inkl. oppdekking, lys og lokale</span><span class="menu-item-price">kr 370,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Mineralvann (tillegg)</span><span class="menu-item-price">kr 52,-</span></div>
+        <p class="subline">Assortert smørbrødbuffet</p>
+      </div>
+      <div class="price-tag">Pris pr. kuvert: kr 390,-</div>
     </div>
-</div>
 
-<!-- Smørbrød utlevering -->
-<div class="content-section">
-    <div class="menu-category">
-        <h2 class="menu-category-title">Smørbrød (utlevering)</h2>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med laks og eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med reker</span><span class="menu-item-price">kr 65,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med kjøttpålegg</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med roastbiff</span><span class="menu-item-price">kr 65,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med ost</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med spekeskinke og eggerøre</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smørbrød med karbonader og løk</span><span class="menu-item-price">kr 75,-</span></div>
+    <ul class="item-list">
+      <li>Varme karbonader <span class="allergen">Allergener: Egg, melk</span></li>
+      <li>Eggerøre m/laks – eggerøre m/spekeskinke <span class="allergen">Allergener: Egg, melk</span></li>
+      <li>Reker <span class="allergen">Allergener: Skalldyr, egg</span></li>
+      <li>Diverse kjøttpålegg: Roastbiff, røkt kjøttpålegg, oksestek, skinkestek</li>
+      <li>Kaffe/Te</li>
+      <li>Kaker: Bløtkake, sjokoladekake, kefirkake <span class="allergen">Allergener: Melk, egg, hvetemel</span></li>
+      <li>Brød <span class="allergen">Allergener: Hvetemel, sammalt hvete, helkorn hvete</span></li>
+    </ul>
+
+    <div class="note">
+      Kuvertpris inkluderer oppdekking, lys, lokalleie og betjening.<br>
+      Mineralvann: kr 52,- (kommer i tillegg til kuvertprisen)
     </div>
-</div>
+  </div>
 
-<!-- Koldtbord (servering hos oss) -->
-<div class="content-section">
-    <div class="menu-category">
-        <h2 class="menu-category-title">Koldtbord (servering hos oss)</h2>
-        <div class="menu-item"><span class="menu-item-name">Eggerøre m/røket laks og spekeskinke</span></div>
-        <div class="menu-item"><span class="menu-item-name">Ostefat med frukt</span></div>
-        <div class="menu-item"><span class="menu-item-name">Roastbiff – kokt røkt skinke (eller andre typer kjøtt)</span></div>
-        <div class="menu-item"><span class="menu-item-name">Kylling</span></div>
-        <div class="menu-item"><span class="menu-item-name">Karbonader med løk</span></div>
-        <div class="menu-item"><span class="menu-item-name">Potetsalat</span></div>
-        <div class="menu-item"><span class="menu-item-name">Grønn salat med dressing</span></div>
-        <div class="menu-item"><span class="menu-item-name">Remulade</span></div>
-        <div class="menu-item"><span class="menu-item-name">Brød</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smør</span></div>
-        <div class="menu-item"><span class="menu-item-name">Karamellpudding eller annen dessert</span></div>
-        <div class="menu-item"><span class="menu-item-name">Pris pr. person</span><span class="menu-item-price">kr 560,-</span></div>
+  <!-- Smørbrød utlevering -->
+  <div id="smorbrod" class="content-section anchor">
+    <div class="category-head">
+      <div>
+        <h2 class="menu-category-title">Smørbrød</h2>
+        <p class="subline">Priser pr. person – utlevering</p>
+      </div>
     </div>
-</div>
 
-<!-- Koldtbord (utlevering) -->
-<div class="content-section">
-    <div class="menu-category">
-        <h2 class="menu-category-title">Koldtbord (utlevering, min. 10 personer)</h2>
-        <div class="menu-item"><span class="menu-item-name">Koldtbord pr. pers</span><span class="menu-item-price">kr 360,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Egg og røkelaks/spekeskinke</span></div>
-        <div class="menu-item"><span class="menu-item-name">Ostefat med frukt</span></div>
-        <div class="menu-item"><span class="menu-item-name">Roastbiff – kokt røkt skinke</span></div>
-        <div class="menu-item"><span class="menu-item-name">Kylling</span></div>
-        <div class="menu-item"><span class="menu-item-name">Karbonader med løk</span></div>
-        <div class="menu-item"><span class="menu-item-name">Potetsalat</span></div>
-        <div class="menu-item"><span class="menu-item-name">Grønn salat med dressing</span></div>
-        <div class="menu-item"><span class="menu-item-name">Remulade</span></div>
+    <div class="price-list">
+      <div class="row">
+        <div class="name">Laks og eggerøre <span class="allergen">Laks, eggerøre, salat, agurk og kruspersille · Allergener: Egg, melk</span></div>
+        <div class="price">kr 65,-</div>
+      </div>
+      <div class="row">
+        <div class="name">Reker <span class="allergen">Salat, majones, sitron, paprika og kruspersille · Allergener: Skalldyr, egg</span></div>
+        <div class="price">kr 70,-</div>
+      </div>
+      <div class="row">
+        <div class="name">Kjøttpålegg <span class="allergen">Salat, agurk, paprika, mandarin og kruspersille</span></div>
+        <div class="price">kr 65,-</div>
+      </div>
+      <div class="row">
+        <div class="name">Roastbiff <span class="allergen">Hjemmelaget roastbiff & remulade, salat, løk, mandarin og sylteagurk · Allergener: Egg</span></div>
+        <div class="price">kr 70,-</div>
+      </div>
+      <div class="row">
+        <div class="name">Ost <span class="allergen">Brie, paprika, mandarin og kruspersille · Allergener: Melk</span></div>
+        <div class="price">kr 70,-</div>
+      </div>
+      <div class="row">
+        <div class="name">Spekeskinke med eggerøre <span class="allergen">Spekeskinke, eggerøre, salat, kruspersille · Allergener: Egg, melk</span></div>
+        <div class="price">kr 65,-</div>
+      </div>
+      <div class="row">
+        <div class="name">Karbonade m/løk <span class="allergen">Allergener: Egg, melk</span></div>
+        <div class="price">kr 80,-</div>
+      </div>
     </div>
-</div>
+  </div>
 
-<!-- Komponer eget koldtbord -->
-<div class="content-section">
-    <div class="menu-category">
-        <h2 class="menu-category-title">Komponer eget koldtbord (utlevering)</h2>
-        <div class="menu-item"><span class="menu-item-name">Egg og røkelaks/spekeskinke</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Roastbiff</span><span class="menu-item-price">kr 65,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Kokt røkt skinke / steik okse/svin</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Kabaret med remulade</span><span class="menu-item-price">kr 60,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Kylling</span><span class="menu-item-price">kr 65,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Karbonader med løk</span><span class="menu-item-price">kr 75,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Potetsalat</span><span class="menu-item-price">kr 35,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Grønn salat med dressing</span><span class="menu-item-price">kr 45,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Waldorfsalat</span><span class="menu-item-price">kr 50,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Ost</span><span class="menu-item-price">kr 65,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Brød pr. stk</span><span class="menu-item-price">kr 25,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Kuvertsmør pr. stk</span><span class="menu-item-price">kr 3,-</span></div>
+  <!-- Koldtbord - servering hos oss -->
+  <div id="koldtbord-hos" class="content-section anchor">
+    <div class="category-head">
+      <div>
+        <h2 class="menu-category-title">Koldtbord</h2>
+        <p class="subline">Min. 10 personer</p>
+      </div>
+      <div class="price-tag">kr 580,- pr. pers.</div>
     </div>
-</div>
 
-<!-- Tapas (servering hos oss) -->
-<div class="content-section">
-    <div class="menu-category">
-        <h2 class="menu-category-title">Tapas (servering hos oss)</h2>
-        <div class="menu-item"><span class="menu-item-name">Tapas pr. pers</span><span class="menu-item-price">kr 400,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Kjøttboller i tomatsaus (3 stk)</span></div>
-        <div class="menu-item"><span class="menu-item-name">Marinert kylling med urter, creme fraiche og majones</span></div>
-        <div class="menu-item"><span class="menu-item-name">Marinert scampi med hvitløk (4 stk)</span></div>
-        <div class="menu-item"><span class="menu-item-name">Dadler med bacon (3 stk)</span></div>
-        <div class="menu-item"><span class="menu-item-name">Poteter med ost</span></div>
-        <div class="menu-item"><span class="menu-item-name">Lefser med laks/spekeskinke, urter og frukt</span></div>
-        <div class="menu-item"><span class="menu-item-name">Tomatsalsa med mozzarella</span></div>
-        <div class="menu-item"><span class="menu-item-name">Spansk omelett</span></div>
-        <div class="menu-item"><span class="menu-item-name">Tzatziki</span></div>
-        <div class="menu-item"><span class="menu-item-name">Hjemmelaget focaccia</span></div>
-        <div class="menu-item"><span class="menu-item-name">Aioli</span></div>
-        <div class="menu-item"><span class="menu-item-name">Smør</span></div>
+    <ul class="item-list">
+      <li>Eggerøre m/røket laks og spekeskinke <span class="allergen">Allergener: Egg, melk</span></li>
+      <li>Ostefat m/frukt <span class="allergen">Allergener: Melk</span></li>
+      <li>Roastbiff – kokt røkt skinke (eller to andre typer kjøtt)</li>
+      <li>Kylling</li>
+      <li>Karbonader m/løk <span class="allergen">Allergener: Melk, egg</span></li>
+      <li>Potetsalat <span class="allergen">Allergener: Egg, melk</span></li>
+      <li>Grønnsalat m/dressing</li>
+      <li>Remulade <span class="allergen">Allergener: Egg</span></li>
+      <li>Brød <span class="allergen">Allergener: Hvetemel, sammalt hvete, fullkorn hvete</span></li>
+      <li>Smør <span class="allergen">Allergener: Melk</span></li>
+      <li>Karamellpudding ev. annen dessert <span class="allergen">Allergener: Melk, egg</span></li>
+    </ul>
+  </div>
+
+  <!-- Koldtbord - utlevering -->
+  <div id="koldtbord-ut" class="content-section anchor">
+    <div class="category-head">
+      <div>
+        <h2 class="menu-category-title">Koldtbord</h2>
+        <p class="subline">Utlevering · Min. 10 personer</p>
+      </div>
+      <div class="price-tag">kr 380,- pr. pers.</div>
     </div>
-</div>
 
-<!-- Leie av lokaler -->
-<div class="content-section">
-    <div class="menu-category">
+    <ul class="item-list">
+      <li>Eggerøre m/røket laks og spekeskinke <span class="allergen">Allergener: Egg, melk</span></li>
+      <li>Ostefat m/frukt <span class="allergen">Allergener: Melk</span></li>
+      <li>Roastbiff – kokt røkt skinke (eller to andre typer kjøtt)</li>
+      <li>Kylling</li>
+      <li>Karbonader m/løk <span class="allergen">Allergener: Egg, melk</span></li>
+      <li>Potetsalat <span class="allergen">Allergener: Melk, egg</span></li>
+      <li>Grønnsalat m/dressing</li>
+      <li>Remulade <span class="allergen">Allergener: Egg</span></li>
+    </ul>
+
+    <div class="note">
+      <strong>Tillegg:</strong>
+      <div class="price-list" style="margin-top:8px;">
+        <div class="row"><div class="name">Brød pr. stk <span class="allergen">Allergener: Hvetemel, sammalt hvete, fullkorn hvete</span></div><div class="price">kr 30,-</div></div>
+        <div class="row"><div class="name">Kuvertsmør pr. stk <span class="allergen">Allergener: Melk</span></div><div class="price">kr 4,-</div></div>
+        <div class="row"><div class="name">Ekstra karbonade pr. stk <span class="allergen">Allergener: Melk, egg</span></div><div class="price">kr 55,-</div></div>
+        <div class="row"><div class="name">Waldorfsalat pr. stk <span class="allergen">Allergener: Melk, valnøtter, selleri</span></div><div class="price">kr 55,-</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Komponer eget koldtbord -->
+  <div id="komponer" class="content-section anchor">
+    <div class="category-head">
+      <div>
+        <h2 class="menu-category-title">Komponer ditt eget koldtbord</h2>
+        <p class="subline">Utlevering · Priser pr. pers.</p>
+      </div>
+    </div>
+
+    <div class="price-list">
+      <div class="row"><div class="name">Eggerøre m/røket laks og/eller spekeskinke</div><div class="price">kr 65,-</div></div>
+      <div class="row"><div class="name">Roastbiff</div><div class="price">kr 70,-</div></div>
+      <div class="row"><div class="name">Kokt røkt skinke, ev. steik okse/svin</div><div class="price">kr 65,-</div></div>
+      <div class="row"><div class="name">Kabaret m/remulade</div><div class="price">kr 65,-</div></div>
+      <div class="row"><div class="name">Kylling</div><div class="price">kr 70,-</div></div>
+      <div class="row"><div class="name">Karbonader m/løk</div><div class="price">kr 80,-</div></div>
+      <div class="row"><div class="name">Potetsalat</div><div class="price">kr 40,-</div></div>
+      <div class="row"><div class="name">Grønnsalat m/dressing</div><div class="price">kr 50,-</div></div>
+      <div class="row"><div class="name">Waldorfsalat</div><div class="price">kr 50,-</div></div>
+      <div class="row"><div class="name">Ost</div><div class="price">kr 70,-</div></div>
+      <div class="row"><div class="name">Brød pr. stk</div><div class="price">kr 30,-</div></div>
+      <div class="row"><div class="name">Kuvertsmør pr. stk</div><div class="price">kr 4,-</div></div>
+    </div>
+
+    <div class="allergen" style="margin-top:10px;">
+      Allergener (generelt): Egg, melk, hvetemel, sammalt hvete, helkorn hvete
+    </div>
+  </div>
+
+  <!-- Tapas -->
+  <div id="tapas" class="content-section anchor">
+    <div class="category-head">
+      <div>
+        <h2 class="menu-category-title">Tapas</h2>
+        <p class="subline">Min. 10 personer · Maks 20 personer</p>
+      </div>
+      <div class="price-tag">kr 420,- pr. pers.</div>
+    </div>
+
+    <ul class="item-list">
+      <li>Kjøttboller i tomatsaus (3 stk) <span class="allergen">Allergener: Melk</span></li>
+      <li>Marinert kylling med bl.a. urter, creme fraiche og majones (ev. kyllingklubber) <span class="allergen">Allergener: Melk, egg</span></li>
+      <li>Marinert scampi m/hvitløk (4 stk) <span class="allergen">Allergener: Skalldyr</span></li>
+      <li>Dadler m/bacon (3 stk)</li>
+      <li>Poteter m/ost <span class="allergen">Allergener: Melk</span></li>
+      <li>Lefser m/laks og spekeskinke, urter, frukt <span class="allergen">Allergener: Melk, mel</span></li>
+      <li>Tomatsalsa m/mozzarella <span class="allergen">Allergener: Melk</span></li>
+      <li>Spansk omelett <span class="allergen">Allergener: Egg, melk</span></li>
+      <li>Tzatziki <span class="allergen">Allergener: Melk</span></li>
+      <li>Hjemmelaget focaccia <span class="allergen">Allergener: Hvetemel</span></li>
+      <li>Aioli <span class="allergen">Allergener: Egg</span></li>
+      <li>Smør <span class="allergen">Allergener: Melk</span></li>
+    </ul>
+  </div>
+
+  <!-- Leie av lokaler -->
+  <div id="lokaler" class="content-section anchor">
+    <div class="category-head">
+      <div>
         <h2 class="menu-category-title">Leie av lokaler</h2>
-        <div class="menu-item"><span class="menu-item-name">Leie lokaler v/seremoni uten mat</span><span class="menu-item-price">kr 5.800,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Leie lokaler v/seremoni med mat</span><span class="menu-item-price">kr 4.500,-</span></div>
-        <div class="menu-item"><span class="menu-item-name">Leie lokaler m/kaffe og kaker</span><span class="menu-item-price">kr 5.800,- + kr 225,- pr. pers</span></div>
-        <div class="menu-item"><span class="menu-item-name">Leie lokaler m/kaffe/te</span><span class="menu-item-price">kr 5.800,- + kr 50,- pr. pers</span></div>
-        <div class="menu-item"><span class="menu-item-name">Leie av "Lillesalen" (max 20 personer)</span><span class="menu-item-price">kr 2.000,-</span></div>
+        <p class="subline">Priser</p>
+      </div>
     </div>
+
+    <div class="price-list">
+      <div class="row"><div class="name">Leie lokaler v/seremoni uten mat</div><div class="price">kr 5.800,-</div></div>
+      <div class="row"><div class="name">Leie lokaler v/seremoni med mat</div><div class="price">kr 4.500,-</div></div>
+      <div class="row"><div class="name">Leie lokaler m/kaffe og kaker</div><div class="price">kr 5.800,- + kr 225,- pr. pers</div></div>
+      <div class="row"><div class="name">Leie lokaler m/kaffe/te</div><div class="price">kr 5.800,- + kr 50,- pr. pers</div></div>
+      <div class="row"><div class="name">Leie av "Lillesalen" (max 20 personer)</div><div class="price">kr 2.000,-</div></div>
+    </div>
+  </div>
+
 </div>
 
 <footer>
-    <p>&copy; Holth Catering. Alle rettigheter reservert.</p>
+  <p>&copy; Holth Catering. Alle rettigheter reservert.</p>
 </footer>
 
 </body>
